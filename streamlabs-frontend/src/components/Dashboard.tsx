@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from './DashboardLayout';
 import DashboardCards from './DashboardCards';
+import Notifications from './Notifications';
 import { get } from '../helpers/api';
 import { toast } from 'react-toastify';
 import { useToken } from '../context/TokenContext';
@@ -55,6 +56,8 @@ const Dashboard: React.FC = () => {
           top_items={dashboardStats.top_items}
         />
       )}
+
+      <Notifications />
     </DashboardLayout>
   );
 };
