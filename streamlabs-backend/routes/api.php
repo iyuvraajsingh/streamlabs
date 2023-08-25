@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 
 
 /*
@@ -27,3 +28,5 @@ Route::post('auth/login', [AuthController::class, 'authenticate']);
 Route::post('auth/logout', [AuthController::class, 'logout'])->middleware('jwt.verify');
 
 Route::get('user/dashboard', [DashboardController::class, 'dashboardStats'])->middleware('jwt.verify');
+Route::get('user/notifications', [NotificationController::class, 'unreadNotifications'])->middleware('jwt.verify');
+Route::put('user/notifications/toggle_read/{notification_id}', [NotificationController::class, 'toggleReadStatus'])->middleware('jwt.verify');
