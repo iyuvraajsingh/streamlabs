@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -25,3 +26,4 @@ use App\Http\Controllers\AuthController;
 Route::post('auth/login', [AuthController::class, 'authenticate']);
 Route::post('auth/logout', [AuthController::class, 'logout'])->middleware('jwt.verify');
 
+Route::get('user/dashboard', [DashboardController::class, 'dashboardStats'])->middleware('jwt.verify');
